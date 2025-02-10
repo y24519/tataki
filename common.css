@@ -1,3 +1,100 @@
+.haikei{
+    background-image:url("image/keyboad.png");
+    background-repeat: no-repeat;
+
+    background-size: 65%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-position: center;
+}
+.all{
+    position: relative;
+  }
+  .button1 {
+    position: absolute;
+    left: -380px;
+    bottom: 80px;
+  }
+  .button2 {
+    position: absolute;
+    left: -255px;
+    bottom: 80px;
+  }
+  .button3 {
+    position: absolute;
+    left: -135px;
+    bottom: 80px;
+  }
+  .button4 {
+    position: absolute;
+    left: -10px;
+    bottom: 80px;
+  }
+  .button5 {
+    position: absolute;
+    left: 113px;
+    bottom: 80px;
+  }
+  .buttonq {
+    position: absolute;
+    left: -359px;
+    bottom: -40px;
+  }
+  .buttonw {
+    position: absolute;
+    left: -235px;
+    bottom: -40px;
+  }
+  .buttone {
+    position: absolute;
+    left: -112px;
+    bottom: -40px;
+  }
+  .buttonr {
+    position: absolute;
+    left: 13px;
+    bottom: -40px;
+  }
+  .buttont {
+    position: absolute;
+    left: 135px;
+    bottom: -40px;
+  }
+
+  .buttony {
+    position: absolute;
+    left: 260px;
+    bottom: -40px;
+  }
+  .buttona {
+    position: absolute;
+    left: -300px;
+    bottom: -160px;
+  }
+  .buttons {
+    position: absolute;
+    left: -180px;
+    bottom: -160px;
+  }
+  .buttond {
+    position: absolute;
+    left: -54px;
+    bottom: -160px;
+  }
+
+  .buttonf {
+    position: absolute;
+    right: -175px;
+    bottom: -160px;
+  }
+  .buttong {
+    position: absolute;
+    right: -300px;
+    bottom: -160px;
+  }
 
 
   .space1 {
