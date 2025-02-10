@@ -1,0 +1,26 @@
+
+
+  .space1 {
+    position: absolute;
+    left: -360px;
+    bottom: -280px;
+    
+  }
+  .space2 {
+    position: absolute;
+    left: -90px;
+    bottom: -280px;
+
+  }
+  .tokuten{
+    left: 1000px;
+    height: 1000px;
+ }
+  .tokuten1{
+    left: 1000px;
+    height: 1000px;
+ }
+ .time{
+    right: -1000px;
+    height: 1000px;
+}

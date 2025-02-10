@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const btnt = document.querySelector(".buttont");
     const btnw = document.querySelector(".buttonw");
     const btny = document.querySelector(".buttony");
-    const btnm1 = document.querySelector(".button-1");
+
     const btnspace1 = document.querySelector(".space1");
     const btnspace2 = document.querySelector(".space2");
 
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function(){
     let imgt = document.querySelector(".imgt");
     let imgw = document.querySelector(".imgw");
     let imgy = document.querySelector(".imgy");
-    let imgm1 = document.querySelector(".imgm1");
+
     let imgspace1 = document.querySelector(".imgspace1");
     let imgspace2 = document.querySelector(".imgspace2");
     let toku = document.querySelector(".tokuten");
@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", function(){
             document.querySelector('.tokuten').textContent = score;
             console.log('Click count is ' + score);
             console.log('成功');
+            button.style.display = 'none';
         });
     }
 
