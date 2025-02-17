@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const btnspace1 = document.querySelector(".space1");
     const btnspace2 = document.querySelector(".space2");
 
-    let score = 0;
+    let score = 0; //スコアを初期化
     let timer;
     let countdown;
     let timeLeft = 30; // タイマーの秒数を30に設定
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     }
-
+    //30秒経ったらアラートで結果表示
     function showResults() {
         clearInterval(timer);
         clearInterval(countdown);
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
         alert("ゲーム終了！得点は " + score + " 点です。");
     }
-
+    //30秒からのカウントダウンの表示
     function updateTimer() {
         timeLeft--;
         document.querySelector('.time').textContent = timeLeft;
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
             showResults();
         }
     }
-
+    //ゲームの開始
     function startGame() {
         if (isGameActive) return;
         isGameActive = true;
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
         btnspace1.style.display = "block"; // space1 ボタンは常に表示
         btnspace2.style.display = "block"; // space2 ボタンは常に表示
     }
-
+    //強制終了
     function stopGame() {
         if (!isGameActive) return;
         clearInterval(timer);
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
-
+    //クリックされたら得点追加と非表示
     buttons.forEach(button => {
         if (button !== btnspace1 && button !== btnspace2) {
             button.addEventListener('click', function(event) {
