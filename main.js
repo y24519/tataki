@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let countdown;
     let timeLeft = 30; // タイマーの秒数を30に設定
     let isGameActive = false;
-    let max=0;
+    let max=0; //スコアの最大を0に設定
 
     // ランダムにボタンを表示する関数
     function toggleRandomButtons() {
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const randomIndex = Math.floor(Math.random() * buttons.length);
             const button = buttons[randomIndex];
             if (button !== btnspace1 && button !== btnspace2 && !shownButtons.includes(button)) {
-                button.style.display = "block";
+                button.style.display = "block"; //ボタンを表示
                 shownButtons.push(button);
             }
         }
@@ -39,10 +39,10 @@ document.addEventListener("DOMContentLoaded", function() {
         isGameActive = false;
         buttons.forEach(button => {
             if (button !== btnspace1 && button !== btnspace2) {
-                button.style.display = "none";
+                button.style.display = "none";  //ボタンを非表示
             }
         });
-        if(max<score){
+        if(max<score){ //maxよりscoreが大きいときmaxを入れ替える
             max=score;
         }
         alert("ゲーム終了！得点は " + score + " 点です。 これまでの最高得点は"+max+"点です。");
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
         isGameActive = false;
         buttons.forEach(button => {
             if (button !== btnspace1 && button !== btnspace2) {
-                button.style.display = "none";
+                button.style.display = "none"; // ボタンを非表示
             }
         });
     }
