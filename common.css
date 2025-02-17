@@ -1,123 +1,133 @@
-.haikei{
-    background-image:url("image/keyboad.png");
-    background-repeat: no-repeat;
-
-    background-size: 65%;
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    background-position: center;
+.haikei {
+  background-image: url("image/keyboad.png");
+  background-repeat: no-repeat;
+  background-size: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-position: center;
+  position: relative;
 }
-.all{
-    position: relative;
-  }
-  .button1 {
-    position: absolute;
-    left: -380px;
-    bottom: 80px;
-  }
-  .button2 {
-    position: absolute;
-    left: -255px;
-    bottom: 80px;
-  }
-  .button3 {
-    position: absolute;
-    left: -135px;
-    bottom: 80px;
-  }
-  .button4 {
-    position: absolute;
-    left: -10px;
-    bottom: 80px;
-  }
-  .button5 {
-    position: absolute;
-    left: 113px;
-    bottom: 80px;
-  }
-  .buttonq {
-    position: absolute;
-    left: -359px;
-    bottom: -40px;
-  }
-  .buttonw {
-    position: absolute;
-    left: -235px;
-    bottom: -40px;
-  }
-  .buttone {
-    position: absolute;
-    left: -112px;
-    bottom: -40px;
-  }
-  .buttonr {
-    position: absolute;
-    left: 13px;
-    bottom: -40px;
-  }
-  .buttont {
-    position: absolute;
-    left: 135px;
-    bottom: -40px;
-  }
 
-  .buttony {
-    position: absolute;
-    left: 260px;
-    bottom: -40px;
-  }
-  .buttona {
-    position: absolute;
-    left: -300px;
-    bottom: -160px;
-  }
-  .buttons {
-    position: absolute;
-    left: -180px;
-    bottom: -160px;
-  }
-  .buttond {
-    position: absolute;
-    left: -54px;
-    bottom: -160px;
-  }
+.all {
+  position: relative;
+}
 
-  .buttonf {
-    position: absolute;
-    right: -175px;
-    bottom: -160px;
-  }
-  .buttong {
-    position: absolute;
-    right: -300px;
-    bottom: -160px;
-  }
+button {
+  position: absolute;
+}
 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: black;
+}
 
-  .space1 {
-    position: absolute;
-    left: -360px;
-    bottom: -280px;
-    
-  }
-  .space2 {
-    position: absolute;
-    left: -90px;
-    bottom: -280px;
+header img {
+  height: 50px;
+}
 
-  }
-  .tokuten{
-    left: 1000px;
-    height: 1000px;
- }
-  .tokuten1{
-    left: 1000px;
-    height: 1000px;
- }
- .time{
-    right: -1000px;
-    height: 1000px;
+.score-board {
+  font-size: 2em;
+}
+
+.timer-board {
+  font-size: 2em;
+}
+
+/* 各ボタンの位置を設定 */
+.button1 {
+  left: -380px;
+  bottom: 80px;
+}
+
+/* ここに他のボタンの位置を設定 */
+.button2 {
+  left: -255px;
+  bottom: 80px;
+}
+
+.button3 {
+  left: -135px;
+  bottom: 80px;
+}
+
+.button4 {
+  left: -10px;
+  bottom: 80px;
+}
+
+.button5 {
+  left: 113px;
+  bottom: 80px;
+}
+
+.buttonq {
+  left: -359px;
+  bottom: -40px;
+}
+
+.buttonw {
+  left: -235px;
+  bottom: -40px;
+}
+
+.buttone {
+  left: -112px;
+  bottom: -40px;
+}
+
+.buttonr {
+  left: 13px;
+  bottom: -40px;
+}
+
+.buttont {
+  left: 135px;
+  bottom: -40px;
+}
+
+.buttony {
+  left: 260px;
+  bottom: -40px;
+}
+
+.buttona {
+  left: -300px;
+  bottom: -160px;
+}
+
+.buttons {
+  left: -180px;
+  bottom: -160px;
+}
+
+.buttond {
+  left: -54px;
+  bottom: -160px;
+}
+
+.buttonf {
+  right: -175px;
+  bottom: -160px;
+}
+
+.buttong {
+  right: -300px;
+  bottom: -160px;
+}
+
+.space1 {
+  left: -360px;
+  bottom: -280px;
+}
+
+.space2 {
+  left: -90px;
+  bottom: -280px;
 }
