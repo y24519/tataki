@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let countdown;
     let timeLeft = 30; // タイマーの秒数を30に設定
     let isGameActive = false;
+    let max=0;
 
     // ランダムにボタンを表示する関数
     function toggleRandomButtons() {
@@ -41,8 +42,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 button.style.display = "none";
             }
         });
-        alert("ゲーム終了！得点は " + score + " 点です。");
+        if(max<score){
+            max=score;
+        }
+        alert("ゲーム終了！得点は " + score + " 点です。 これまでの最高得点は"+max+"点です。");
+        
     }
+
     //30秒からのカウントダウンの表示
     function updateTimer() {
         timeLeft--;
