@@ -117,7 +117,13 @@
     left: 1000px;
     height: 1000px;
  }
+ .timer{
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  font-size: 12px;
+ }
  .time{
-    right: -1000px;
-    height: 1000px;
+    
+    height: auto;
 }
