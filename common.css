@@ -1,3 +1,4 @@
+/*キーボードの画像の位置調整*/
 .haikei {
   background-image: url("image/keyboad.png");
   background-repeat: no-repeat;
@@ -22,7 +23,7 @@
   background-position: center;
   position: relative;
 }
-
+/*画像とボタンが重なるようにする*/
 .all {
   position: relative;
 }
@@ -30,7 +31,7 @@
 button {
   position: absolute;
 }
-
+/*ヘッダーのサイズと色の設定*/
 header {
   display: flex;
   justify-content: space-between;
@@ -58,7 +59,7 @@ header img {
   bottom: 80px;
 }
 
-/* ここに他のボタンの位置を設定 */
+/* ここに他のボタンと画像の位置を設定 */
 .button2 {
   left: -225px;
   bottom: 80px;
