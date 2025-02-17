@@ -1,80 +1,94 @@
-document.addEventListener("DOMContentLoaded", function(){
-    const btn1 = document.querySelector(".button1");
-    const btn2 = document.querySelector(".button2");
-    const btn3 = document.querySelector(".button3");
-    const btn4 = document.querySelector(".button4");
-    const btn5 = document.querySelector(".button5");
-    const btna = document.querySelector(".buttona");
-    const btnd = document.querySelector(".buttond");
-    const btne = document.querySelector(".buttone");
-    const btnf = document.querySelector(".buttonf");
-    const btng = document.querySelector(".buttong");
-    const btnq = document.querySelector(".buttonq");
-    const btnr = document.querySelector(".buttonr");
-    const btns = document.querySelector(".buttons");
-    const btnt = document.querySelector(".buttont");
-    const btnw = document.querySelector(".buttonw");
-    const btny = document.querySelector(".buttony");
-
+document.addEventListener("DOMContentLoaded", function() {
+    const buttons = document.querySelectorAll(".all button");
     const btnspace1 = document.querySelector(".space1");
     const btnspace2 = document.querySelector(".space2");
 
-    let img1 = document.querySelector(".img1");
-    let img2 = document.querySelector(".img2");
-    let img3 = document.querySelector(".img3");
-    let img4 = document.querySelector(".img4");
-    let img5 = document.querySelector(".img5");
-    let imga = document.querySelector(".imga");
-    let imgd = document.querySelector(".imgd");
-    let imge = document.querySelector(".imge");
-    let imgf = document.querySelector(".imgf");
-    let imgg = document.querySelector(".imgg");
-    let imgq = document.querySelector(".imgq");
-    let imgr = document.querySelector(".imgr");
-    let imgs = document.querySelector(".imgs");
-    let imgt = document.querySelector(".imgt");
-    let imgw = document.querySelector(".imgw");
-    let imgy = document.querySelector(".imgy");
-
-    let imgspace1 = document.querySelector(".imgspace1");
-    let imgspace2 = document.querySelector(".imgspace2");
-    let toku = document.querySelector(".tokuten");
-
-    // 初期点数
     let score = 0;
+    let timer;
+    let countdown;
+    let timeLeft = 30; // タイマーの秒数を30に設定
+    let isGameActive = false;
 
-    // ボタンクリック判定
-    function handleButtonClick(button, image) {
-        button.addEventListener('click', function(event) {
-            if (image !== null && button.contains(image)) {
-                button.removeChild(image);
+    // ランダムにボタンを表示する関数
+    function toggleRandomButtons() {
+        // すべてのボタンを一旦非表示にする
+        buttons.forEach(button => {
+            if (button !== btnspace1 && button !== btnspace2) {
+                button.style.display = "none";
             }
-            score += 1; // 点数を増やす
-            document.querySelector('.tokuten').textContent = score;
-            console.log('Click count is ' + score);
-            console.log('成功');
-            button.style.display = 'none';
+        });
+
+        // ランダムに1〜4個のボタンを表示する
+        const numButtonsToShow = Math.floor(Math.random() * 4) + 1; // 1〜4のランダムな数
+        let shownButtons = [];
+        
+        while (shownButtons.length < numButtonsToShow) {
+            const randomIndex = Math.floor(Math.random() * buttons.length);
+            const button = buttons[randomIndex];
+            if (button !== btnspace1 && button !== btnspace2 && !shownButtons.includes(button)) {
+                button.style.display = "block";
+                shownButtons.push(button);
+            }
+        }
+    }
+
+    function showResults() {
+        clearInterval(timer);
+        clearInterval(countdown);
+        isGameActive = false;
+        buttons.forEach(button => {
+            if (button !== btnspace1 && button !== btnspace2) {
+                button.style.display = "none";
+            }
+        });
+        alert("ゲーム終了！得点は " + score + " 点です。");
+    }
+
+    function updateTimer() {
+        timeLeft--;
+        document.querySelector('.time').textContent = timeLeft;
+        if (timeLeft <= 0) {
+            showResults();
+        }
+    }
+
+    function startGame() {
+        if (isGameActive) return;
+        isGameActive = true;
+        score = 0;
+        timeLeft = 30; // タイマーをリセット
+        document.querySelector('.tokuten').textContent = score;
+        document.querySelector('.time').textContent = timeLeft;
+        toggleRandomButtons(); // 初期表示
+        timer = setInterval(toggleRandomButtons, 1000); // 1秒ごとにランダム表示を更新
+        countdown = setInterval(updateTimer, 1000); // 1秒ごとにタイマーを更新
+        btnspace1.style.display = "block"; // space1 ボタンは常に表示
+        btnspace2.style.display = "block"; // space2 ボタンは常に表示
+    }
+
+    function stopGame() {
+        if (!isGameActive) return;
+        clearInterval(timer);
+        clearInterval(countdown);
+        isGameActive = false;
+        buttons.forEach(button => {
+            if (button !== btnspace1 && button !== btnspace2) {
+                button.style.display = "none";
+            }
         });
     }
 
-    // すべてのボタンにイベントリスナーを割り当てる
-    handleButtonClick(btn1, img1);
-    handleButtonClick(btn2, img2);
-    handleButtonClick(btn3, img3);
-    handleButtonClick(btn4, img4);
-    handleButtonClick(btn5, img5);
-    handleButtonClick(btna, imga);
-    handleButtonClick(btnd, imgd);
-    handleButtonClick(btne, imge);
-    handleButtonClick(btnf, imgf);
-    handleButtonClick(btng, imgg);
-    handleButtonClick(btnq, imgq);
-    handleButtonClick(btnr, imgr);
-    handleButtonClick(btns, imgs);
-    handleButtonClick(btnt, imgt);
-    handleButtonClick(btnw, imgw);
-    handleButtonClick(btny, imgy);
-    handleButtonClick(btnm1, imgm1);
-    handleButtonClick(btnspace1, imgspace1);
-    handleButtonClick(btnspace2, imgspace2);
+    buttons.forEach(button => {
+        if (button !== btnspace1 && button !== btnspace2) {
+            button.addEventListener('click', function(event) {
+                if (!isGameActive || button.style.display === "none") return;
+                score += 1;
+                document.querySelector('.tokuten').textContent = score;
+                button.style.display = "none"; // クリックされたら非表示に
+            });
+        }
+    });
+
+    btnspace1.addEventListener('click', startGame);
+    btnspace2.addEventListener('click', stopGame);
 });
