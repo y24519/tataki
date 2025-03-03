@@ -9,12 +9,16 @@ document.addEventListener("DOMContentLoaded", function() {
     let countdown;
     let timeLeft = 30; // タイマーの秒数を30に設定
     let isGameActive = false;
+<<<<<<< HEAD
     let max = 0;
 
     // BGMの設定
     const bgm = new Audio('image/Neon_Nights.mp3'); // BGMのファイルパスを指定
     bgm.loop = true; // BGMをループ再生する
     bgm.volume = 0.2; // BGMの音量を設定（ここでは20%に設定）
+=======
+    let max=0; //スコアの最大を0に設定
+>>>>>>> 3adf65f13ca2c8bfd430d713d36f03b7775bd7b3
 
     // ランダムにボタンを表示する関数
     function toggleRandomButtons() {
