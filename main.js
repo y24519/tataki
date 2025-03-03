@@ -64,7 +64,12 @@ document.addEventListener("DOMContentLoaded", function() {
         alert("ゲーム終了！得点は " + score + " 点です。 これまでの最高得点は " + max + "点です。");
     }
 
+<<<<<<< Updated upstream
     // 30秒からのカウントダウンの表示
+=======
+    
+
+>>>>>>> Stashed changes
     function updateTimer() {
         timeLeft--;
         document.querySelector('.time').textContent = timeLeft;
@@ -127,3 +132,4 @@ document.addEventListener("DOMContentLoaded", function() {
         bgm.currentTime = 0; // BGMを最初から再生できるようにする
     });
 });
+
