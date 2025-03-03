@@ -2,13 +2,19 @@ document.addEventListener("DOMContentLoaded", function() {
     const buttons = document.querySelectorAll(".all button");
     const btnspace1 = document.querySelector(".space1");
     const btnspace2 = document.querySelector(".space2");
+    const btnspace3 = document.querySelector(".space3");
 
-    let score = 0; //スコアを初期化
+    let score = 0; // スコアを初期化
     let timer;
     let countdown;
     let timeLeft = 30; // タイマーの秒数を30に設定
     let isGameActive = false;
-    let max=0;
+    let max = 0;
+
+    // BGMの設定
+    const bgm = new Audio('image/Neon_Nights.mp3'); // BGMのファイルパスを指定
+    bgm.loop = true; // BGMをループ再生する
+    bgm.volume = 0.2; // BGMの音量を設定（ここでは20%に設定）
 
     // ランダムにボタンを表示する関数
     function toggleRandomButtons() {
@@ -32,7 +38,8 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     }
-    //30秒経ったらアラートで結果表示
+
+    // 30秒経ったらアラートで結果表示
     function showResults() {
         clearInterval(timer);
         clearInterval(countdown);
@@ -42,14 +49,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 button.style.display = "none";
             }
         });
-        if(max<score){
-            max=score;
+        if (max < score) {
+            max = score;
         }
-        alert("ゲーム終了！得点は " + score + " 点です。 これまでの最高得点は"+max+"点です。");
-        
+        alert("ゲーム終了！得点は " + score + " 点です。 これまでの最高得点は " + max + "点です。");
     }
 
-    //30秒からのカウントダウンの表示
+    // 30秒からのカウントダウンの表示
     function updateTimer() {
         timeLeft--;
         document.querySelector('.time').textContent = timeLeft;
@@ -57,7 +63,8 @@ document.addEventListener("DOMContentLoaded", function() {
             showResults();
         }
     }
-    //ゲームの開始
+
+    // ゲームの開始
     function startGame() {
         if (isGameActive) return;
         isGameActive = true;
@@ -71,7 +78,8 @@ document.addEventListener("DOMContentLoaded", function() {
         btnspace1.style.display = "block"; // space1 ボタンは常に表示
         btnspace2.style.display = "block"; // space2 ボタンは常に表示
     }
-    //強制終了
+
+    // 強制終了
     function stopGame() {
         if (!isGameActive) return;
         clearInterval(timer);
@@ -83,7 +91,11 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
-    //クリックされたら得点追加と非表示
+
+    // 効果音の設定
+    const clickSound = new Audio('image/oto.mp3'); // クリック音のファイルパスを指定
+
+    // クリックされたら得点追加と非表示
     buttons.forEach(button => {
         if (button !== btnspace1 && button !== btnspace2) {
             button.addEventListener('click', function(event) {
@@ -91,10 +103,18 @@ document.addEventListener("DOMContentLoaded", function() {
                 score += 1;
                 document.querySelector('.tokuten').textContent = score;
                 button.style.display = "none"; // クリックされたら非表示に
+                clickSound.play(); // 効果音を再生
             });
         }
     });
 
-    btnspace1.addEventListener('click', startGame);
+    btnspace1.addEventListener('click', function() {
+        bgm.play(); // BGMを再生
+        startGame();
+    });
     btnspace2.addEventListener('click', stopGame);
+    btnspace3.addEventListener('click', function() {
+        bgm.pause(); // BGMを一時停止
+        bgm.currentTime = 0; // BGMを最初から再生できるようにする
+    });
 });
