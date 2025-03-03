@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const randomIndex = Math.floor(Math.random() * buttons.length);
             const button = buttons[randomIndex];
             if (button !== btnspace1 && button !== btnspace2 && !shownButtons.includes(button)) {
-                button.style.display = "block";
+                button.style.display = "block"; //ボタンを表示
                 shownButtons.push(button);
             }
         }
@@ -46,11 +46,16 @@ document.addEventListener("DOMContentLoaded", function() {
         isGameActive = false;
         buttons.forEach(button => {
             if (button !== btnspace1 && button !== btnspace2) {
-                button.style.display = "none";
+                button.style.display = "none";  //ボタンを非表示
             }
         });
+<<<<<<< HEAD
         if (max < score) {
             max = score;
+=======
+        if(max<score){ //maxよりscoreが大きいときmaxを入れ替える
+            max=score;
+>>>>>>> 3adf65f13ca2c8bfd430d713d36f03b7775bd7b3
         }
         alert("ゲーム終了！得点は " + score + " 点です。 これまでの最高得点は " + max + "点です。");
     }
@@ -87,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function() {
         isGameActive = false;
         buttons.forEach(button => {
             if (button !== btnspace1 && button !== btnspace2) {
-                button.style.display = "none";
+                button.style.display = "none"; // ボタンを非表示
             }
         });
     }
